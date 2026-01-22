@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "dayreminder",
+  "version": "${version}",
+  "name": "Day Reminder",
+  "description": "Reminds you of specific Hypixel Skyblock days.",
+  "authors": [
+    "Me"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/dayreminder/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.dayreminder.DayReminderMod"
+    ],
+    "modmenu": [
+      "com.dayreminder.config.ModMenuIntegration"
+    ]
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "minecraft": "~1.21.5",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "suggests": {}
+}

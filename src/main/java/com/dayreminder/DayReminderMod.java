@@ -55,7 +55,7 @@ public class DayReminderMod implements ClientModInitializer {
 			checkForEvents(client);
 		});
 
-		// Register Client Command /dayreminder status
+		// Register Client Command /dayreminder status and /dayreminder test
 		ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
 			dispatcher.register(literal("dayreminder")
 					.then(literal("status")
@@ -64,6 +64,16 @@ public class DayReminderMod implements ClientModInitializer {
 								client.execute(() -> {
 									String status = getStatusMessage(client);
 									client.player.sendMessage(Text.literal(status), false);
+								});
+								return 1;
+							}))
+					.then(literal("test")
+							.executes(context -> {
+								MinecraftClient client = MinecraftClient.getInstance();
+								client.execute(() -> {
+									WarningHud.showWarning("Test Warning!");
+									client.player.sendMessage(Text.literal("§a[DayReminder] §eTriggered test warning!"),
+											false);
 								});
 								return 1;
 							})));

@@ -18,6 +18,7 @@ public class ModConfig {
 
 	public int warningDurationSeconds = 5;
 	public boolean enabled = true;
+	public float textScale = 2.0f;
 	public java.util.List<CommandGroup> commandGroups = new java.util.ArrayList<>();
 
 	public static class CommandGroup {
@@ -72,6 +73,9 @@ public class ModConfig {
 			instance = new ModConfig();
 			save(); // Save default
 		}
+
+		// Log the loaded config values
+		System.out.println("[DayReminder] Config loaded - textScale: " + instance.textScale);
 	}
 
 	public static void save() {

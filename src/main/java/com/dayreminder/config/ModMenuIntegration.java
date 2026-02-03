@@ -7,8 +7,6 @@ import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.minecraft.text.Text;
 
-import java.util.List;
-
 public class ModMenuIntegration implements ModMenuApi {
 
 	@Override
@@ -36,6 +34,25 @@ public class ModMenuIntegration implements ModMenuApi {
 					.setDefaultValue(5)
 					.setTooltip(Text.of("How long the HUD warning stays on screen"))
 					.setSaveConsumer(newValue -> config.warningDurationSeconds = newValue)
+					.build());
+
+			general.addEntry(entryBuilder
+					.startFloatField(Text.of("Text Scale"), config.textScale)
+					.setDefaultValue(8.0f)
+					.setMin(0.5f)
+					.setMax(20.0f)
+					.setTooltip(Text.of("Size multiplier for warning text (default: 8.0)"))
+					.setSaveConsumer(newValue -> config.textScale = newValue)
+					.build());
+
+			general.addEntry(entryBuilder.startTextDescription(
+					Text.of("§7Tip: Save your changes, then trigger a day event to test"))
+					.build());
+
+			// Preview button - triggers a test warning
+			general.addEntry(entryBuilder.startTextDescription(
+					Text.of("§a§l[Test Warning]§r §7← Type /dayreminder test"))
+					.setTooltip(Text.of("Use command /dayreminder test to preview"))
 					.build());
 
 			// --- Command Groups Category ---
